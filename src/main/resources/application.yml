@@ -1,0 +1,15 @@
+server:
+  port: 4545
+
+bot:
+  name: ${BOT_NAME}
+  token: ${BOT_TOKEN}
+
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  data:
+    mongodb:
+      uri: ${MONGO_URL:mongodb://localhost:27017}
+      database: avto_test
