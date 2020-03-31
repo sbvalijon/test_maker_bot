@@ -45,6 +45,10 @@ public class UserContextUtil {
         return (UserContext) SecurityContextHolder.getContext();
     }
 
+    public UserState getState() {
+        return UserState.valueOf(getCurrentUser().getStudent().getState().toUpperCase());
+    }
+
     public Message getCurrentMessage() {
 
         return getCurrentUser().getUpdate().getMessage();
