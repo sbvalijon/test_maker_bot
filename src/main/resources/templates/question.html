@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+    <link rel="stylesheet" th:href="@{/css/tags.css}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/tags.js"></script>
+    <script>
+        $(function() {
+            $("#qtags").tags({unique: true});
+        });
+        var answer = 0;
+    </script>
+    <script>
+       function addAnswer(answerText, number) {
+           console.log(answerText);
+           $("#answers").append("<br><input type='text' value='" + answerText + "' name='option_" + number + "'><button style='color: red; font: bold' >X</button>");
+       }
+    </script>
+
+</head>
+<body>
+<p>yangi savol kiritish</p>
+
+<form action="/questions/insert" id="qinsert" method="post">
+    <textarea rows="4" cols="50" name="question_text" placeholder="Savol matni bu yerga" style="width: 734px; height: 119px;"></textarea>
+    <div id="answers">
+        <input type="text" id="new_answer">
+        <a onclick="addAnswer( $('#new_answer').val(), ++answer)">Qo`shish</a>
+    </div>
+    <label for="qtags">Taglar</label>
+    <input type="text" id="qtags" name="qtags" placeholder="taglar...">
+    <br>
+    <input type="submit" value="Saqlash">
+</form>
+</body>
+</html>

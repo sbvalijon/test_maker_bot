@@ -13,3 +13,14 @@ spring:
     mongodb:
       uri: ${MONGO_URL:mongodb://localhost:27017}
       database: avto_test
+  thymeleaf:
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+  resources:
+    add-mappings: true
+  security:
+    user:
+      name: 1
+      password: 1
