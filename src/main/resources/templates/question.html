@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Questions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/tags.css}">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script type="text/javascript" src="/js/tags.js"></script>
     <script>
-        $(function() {
+        $(function () {
             $("#qtags").tags({unique: true});
         });
         var answer = 0;
     </script>
     <script>
-       function addAnswer(answerText, number) {
-           console.log(answerText);
-           $("#answers").append("<br><input type='text' value='" + answerText + "' name='option_" + number + "'><button style='color: red; font: bold' >X</button>");
-       }
+        function addAnswer(answerText, number) {
+            console.log(answerText);
+            $("#answers").append("<br><input type='text' value='" + answerText + "' name='option_" + number + "'><a class='deleteBtn' ><i class=\"fa fa-close\"></a>");
+        }
     </script>
 
 </head>
 <body>
-<p>yangi savol kiritish</p>
+<div id="login-box">
+    <div class="new_question_box">
+        <h1>Yangi savol kiritish</h1>
 
-<form action="/questions/insert" id="qinsert" method="post">
-    <textarea rows="4" cols="50" name="question_text" placeholder="Savol matni bu yerga" style="width: 734px; height: 119px;"></textarea>
-    <div id="answers">
-        <input type="text" id="new_answer">
-        <a onclick="addAnswer( $('#new_answer').val(), ++answer)">Qo`shish</a>
+        <form action="/questions/insert" id="qinsert" method="post">
+            <label for="qtags">Taglar</label>
+            <input type="text" id="qtags" name="qtags" placeholder="taglar..."><br>
+            <textarea rows="4" cols="50" name="question_text" placeholder="Savol matni bu yerga"
+                      style="width: 534px; height: 60px;"></textarea>
+            <input type="text" id="new_answer">
+            <a class="addAnswerBtn" onclick="addAnswer( $('#new_answer').val(), ++answer)"><i class="fa fa-plus"></i></a>
+            <input type="submit" value="Saqlash">
+            <p><b>Variantlar:</b></p>
+            <div id="answers"></div>
+
+        </form>
     </div>
-    <label for="qtags">Taglar</label>
-    <input type="text" id="qtags" name="qtags" placeholder="taglar...">
-    <br>
-    <input type="submit" value="Saqlash">
-</form>
+</div>
 </body>
 </html>
