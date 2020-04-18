@@ -16,8 +16,15 @@
     </script>
     <script>
         function addAnswer(answerText, number) {
-            console.log(answerText);
-            $("#answers").append("<br><input type='text' value='" + answerText + "' name='option_" + number + "'><a class='deleteBtn' ><i class=\"fa fa-close\"></a>");
+            let inputAnswer = "<input type='text' value='" + answerText + "' name='option_" + number + "'>";
+            let deleteAnswerBtn = "<a class='deleteBtn' onclick='deleteAnswer(this)'><i class=\"fa fa-close\"></a>";
+            $("#answers").append("<br>" + inputAnswer + deleteAnswerBtn);
+        }
+
+        function deleteAnswer(deleteBtn) {
+            $(deleteBtn).prev().remove();
+            $(deleteBtn).prev().remove();
+            $(deleteBtn).remove();
         }
     </script>
 
