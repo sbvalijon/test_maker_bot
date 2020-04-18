@@ -41,7 +41,7 @@
                       style="width: 534px; height: 60px;"></textarea>
             <input type="text" id="new_answer">
             <a class="addAnswerBtn" onclick="addAnswer( $('#new_answer').val(), ++answer)"><i class="fa fa-plus"></i></a>
-            <input type="submit" value="Saqlash">
+            <a class="submitBtn" onclick="$(this).closest('form').submit();"><i class="fa fa-save"></i></a>
             <p><b>Variantlar:</b></p>
             <div id="answers"></div>
 
