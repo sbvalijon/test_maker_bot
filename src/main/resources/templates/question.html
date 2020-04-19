@@ -36,12 +36,16 @@
 
         <form action="/questions/insert" id="qinsert" method="post">
             <label for="qtags">Taglar</label>
-            <input type="text" id="qtags" name="qtags" placeholder="taglar..."><br>
+            <input type="text" id="qtags" name="question_tags" placeholder="taglar..."><br>
             <textarea rows="4" cols="50" name="question_text" placeholder="Savol matni bu yerga"
                       style="width: 534px; height: 60px;"></textarea>
             <input type="text" id="new_answer">
             <a class="addAnswerBtn" onclick="addAnswer( $('#new_answer').val(), ++answer)"><i class="fa fa-plus"></i></a>
             <a class="submitBtn" onclick="$(this).closest('form').submit();"><i class="fa fa-save"></i></a>
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fa fa-cloud-upload"></i> Rasm yuklash
+            </label>
+            <input id="file-upload" type="file" name="question_photo" accept=".png, .jpg, .jpeg"/>
             <p><b>Variantlar:</b></p>
             <div id="answers"></div>
 
